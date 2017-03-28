@@ -1,24 +1,24 @@
-var path = require("path");
-var webpack = require("webpack");
-var WebpackBuildNotifierPlugin = require("webpack-build-notifier");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+var path = require('path')
+var webpack = require('webpack')
+var WebpackBuildNotifierPlugin = require('webpack-build-notifier')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
 const PATHS = {
-  src: __dirname,
+  src: path.join(__dirname, './src'),
   build: path.join(__dirname, './build')
-};
+}
 
 module.exports = {
 
   entry: {
-    "app": PATHS.src + '/index.ts'
+    'app': PATHS.src + '/index.ts'
   },
   output: {
     path: PATHS.build,
     filename: '[name].js',
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   module: {
     loaders: [
       {
@@ -36,13 +36,13 @@ module.exports = {
   },
   plugins: [
     new WebpackBuildNotifierPlugin({
-      title: "My Project Webpack Build"
+      title: 'My Project Webpack Build'
     }),
     new HtmlWebpackPlugin({
       title: 'Webpack boilerplate',
       hash: true,
       filename: 'index.html',
-      template: 'index.html'
+      template: 'src/index.html'
     })
   ]
-};
+}
