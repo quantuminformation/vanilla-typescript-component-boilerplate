@@ -24,9 +24,14 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'ts-loader'
-      }, {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.p?css$/,
+        loaders: [
+          'style-loader',
+          'css-loader?importLoaders=1,url=false',
+          'postcss-loader'
+        ]
       }
     ]
   },

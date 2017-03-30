@@ -18,11 +18,12 @@ describe('Basic tests', () => {
     assert.equal(document.querySelectorAll('.typescript-component').length, 1)
 
   })
-  it('handles button clicks', () => {
+  it('handles button clicks', (done) => {
 
     document.querySelector('.my-button-1').dispatchEvent(new Event('click'))
-    setTimeout(function () {
+    setTimeout(() => {
       assert.equal(outputElement.innerHTML, 'hello-world')
+      done()
     }, 0)
   })
 })
